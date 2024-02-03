@@ -1,0 +1,29 @@
+{
+  "name": "food-reservation-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ronylee11/food-reservation-system.git"
+  },
+  "keywords": [
+    "mern"
+  ],
+  "author": "ronylee11",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronylee11/food-reservation-system/issues"
+  },
+  "homepage": "https://github.com/ronylee11/food-reservation-system#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "path": "^0.12.7"
+  }
+}
