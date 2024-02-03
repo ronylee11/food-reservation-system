@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/Register.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="http://localhost:3000/sign_up" method="post">
+            <!-- Specify the action attribute with the server endpoint -->
+            <h1>
+                Register
+            </h1>
+            <div class="inputBox">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required="required">
+                <!-- Add the 'name' attribute to identify the input field -->
+            </div>
+
+            <div class="inputBox">
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" required="required">
+                <!-- Add the 'name' attribute to identify the input field -->
+            </div>
+
+            <div class="inputBox">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required="required">
+                <!-- Add the 'name' attribute to identify the input field -->
+            </div>
+
+            <div class="inputBox">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required="required">
+                <!-- Add the 'name' attribute to identify the input field -->
+            </div>
+            <input type="submit" value="Confirm" class="submitButton">
+            <button id="backButton" class="submitButton">Back</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("backButton").onclick = function () {
+            window.location.href = "Mainpage.html";
+        };
+    </script>
+</body>
+
+</html>

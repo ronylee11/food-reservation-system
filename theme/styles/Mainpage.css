@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #23242a;
+
+}
+
+.container {
+    /* position: relative; */
+    width: 800px;
+    height: 800px;
+    background: #92624e;
+    text-align: center;
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+img {
+    width: 300px; /* Set a fixed width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't exceed its natural size */
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add some bottom margin */
+    mix-blend-mode: multiply;
+}
+
+h1 {
+    font-size: 50px; /* Adjust the font size for h1 */
+}
+
+h2 {
+    font-size: 30px; /* Adjust the font size for h2 */
+}
+
+button {
+    padding: 15px;
+    font-size: 20px;
+    width: 200px;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
