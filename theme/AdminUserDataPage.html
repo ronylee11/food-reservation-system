@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/AdminPortal.css">
+    <link rel="stylesheet" href="styles/AdminUserDataPage.css">
+</head>
+
+<body class="portal-body user-data-body">
+
+    <div class="container">
+        <h1>User Data Management</h1>
+        <table class="user-table" id="editableTable">
+            <thead>
+                <tr>
+                    <th>User Type</th>
+                    <th>User Name</th>
+                    <th>User ID</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
+                    <th>Active Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your user data rows here -->
+                <tr>
+                    <td contenteditable="false">Admin</td>
+                    <td contenteditable="false">John Doe</td>
+                    <td contenteditable="false">john.doe</td>
+                    <td contenteditable="false">123-456-7890</td>
+                    <td contenteditable="false">********</td>
+                    <td contenteditable="false">Active</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <button class="edit-button" onclick="toggleEdit()">Edit</button>
+        <button class="save-button" onclick="saveChanges()">Save</button>
+        <button class="back-button" onclick="goBackToAdminPortal()">Back to Admin Portal</button>
+    </div>
+
+    <script>
+        function toggleEdit() {
+            var table = document.getElementById("editableTable");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                for (var j = 0; j < cells.length; j++) {
+                    cells[j].contentEditable = true;
+                }
+            }
+        }
+
+        function saveChanges() {
+            var table = document.getElementById("editableTable");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                for (var j = 0; j < cells.length; j++) {
+                    cells[j].contentEditable = false;
+                }
+            }
+            // Add logic to save the changes to your data source
+            alert("Changes saved successfully!");
+        }
+
+        function goBackToAdminPortal() {
+            window.location.href = "AdminPortal.html"; // Update with your admin portal page
+        }
+    </script>
+</body>
+
+</html>
