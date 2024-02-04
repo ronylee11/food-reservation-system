@@ -4,45 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/AdminViewPayment.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .portal-container {
+            border: 1px solid #000;
+            padding: 20px;
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        .button-row {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body class="portal-body">
 
-    <div class="container">
-        <h1>
+    <div class="container portal-container">
+        <h1 class="mt-4 mb-4 text-center">
             View Payments
         </h1>
-        <table class="payment-table">
-            <thead>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>User Name</th>
                     <th>User ID</th>
                     <th>Food Type</th>
-                    <th>Amount (RM) </th>
+                    <th>Amount (RM)</th>
                     <th>Date</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Add your payment data rows here -->
                 <tr>
-                    <td>John Doe</td>
-                    <td>john.doe</td>
+                    <td>John</td>
+                    <td>201</td>
                     <td>Nasi Lemak</td>
                     <td>10.99</td>
                     <td>1/1/2024, 10:24 PM</td>
                     <td>Successful</td>
                 </tr>
-                <!-- Add more rows as needed -->
             </tbody>
         </table>
-        <button class="back-button" onclick="goBackToAdminPortal()">Back to Admin Portal</button>
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="goBackToAdminPortal()">Back to Admin Portal</button>
+        </div>
     </div>
 
     <script>
         function goBackToAdminPortal() {
-            window.location.href = "AdminPortal.html"; // Update with your admin portal page
+            window.location.href = "AdminPortal.html";
         }
     </script>
 </body>

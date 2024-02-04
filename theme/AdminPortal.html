@@ -4,24 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/AdminPortal.css">
-    <link rel="stylesheet" href="styles/Mainpage.css"> <!-- Add this line to include the main page styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .portal-container {
+            border: 1px solid #000;
+            padding: 20px;
+            width: 800px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .logout-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 
-<body class="portal-body"> <!-- Add the class to the body tag -->
+<body class="portal-body">
 
-    <div class="container">
-        <h1>
-            Admin<br>
-            Portal
-        </h1>
-        <div class="button-container">
-            <button class="activity-button" onclick="redirectTo('AdminUserData.html')">User Data Management</button>
-            <button class="activity-button" onclick="redirectTo('AdminViewWithdraw.html')">View Withdraw</button>
-            <button class="activity-button" onclick="redirectTo('AdminViewPayment.html')">View Payment</button>
-            <button class="activity-button" onclick="redirectTo('ViewTopUp.html')">View Top-Up</button>
-            <button class="activity-button" onclick="redirectTo('MenuUpdate.html')">Menu Update</button>
-            <button id="backButton" class="submitButton" onclick="redirectTo('MainPage.html')">Log Out</button>
+    <div class="container portal-container">
+        <div class="row justify-content-center mb-2">
+            <h1 class="text-center">Admin Portal</h1>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px; width: 200px;" onclick="redirectTo('AdminUserData.html')">User Data Management</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px; width: 200px;" onclick="redirectTo('AdminViewWithdraw.html')">View Withdraw</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px; width: 200px;" onclick="redirectTo('AdminViewPayment.html')">View Payment</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px; width: 200px;" onclick="redirectTo('AdminViewTopUp.html')">View Top-Up</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px; width: 200px;" onclick="redirectTo('MenuUpdate.html')">Menu Update</button>
+            </div>
+        </div>
+        <div class="logout-button">
+            <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px;" onclick="redirectTo('MainPage.html')">Log Out</button>
         </div>
     </div>
 
