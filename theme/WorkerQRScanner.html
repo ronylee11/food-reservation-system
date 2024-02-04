@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>QR Code Scanner</title>
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .QRScanner-container {
+            border: 1px solid #000;
+            padding: 20px;
+            width: 800px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+
+        main {
+
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 800px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #reader {
+            width: 600px;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        #backButton {
+            margin: 10px;
+            position: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container QRScanner-container">
+        <main>
+            <div id="reader"></div>
+            <div id="result"></div>
+        </main>
+        <div id="backButton">
+            <button class="btn btn-outline-dark" onclick="goBack()">Back to Worker Portal</button>
+        </div>
+    </div>
+    <script>
+        const scanner = new Html5QrcodeScanner('reader', {
+            qrbox: {
+                width: 250,
+                height: 250,
+            },
+            fps: 20,
+        });
+
+        scanner.render(success, error);
+
+        function success(result) {
+            document.getElementById('result').innerHTML = `
+            <h2>Success!</h2>
+            <p><a href="${result}">${result}</a><p>
+            `;
+
+            scanner.clear();
+            document.getElementById('reader').remove();
+        }
+
+        function error(err) {
+            console.error(err);
+        }
+
+        function goBack() {
+            window.location.href = 'WorkerPortal.html';
+        }
+    </script>
+</body>
+
+</html>
