@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/AdminPortal.css">
+    <link rel="stylesheet" href="styles/AdminViewWithdraw.css"> <!-- Add the specific styles for the View Withdraw page -->
+</head>
+
+<body class="portal-body">
+
+    <div class="container">
+        <h1>
+            View Withdraw
+        </h1>
+        <table class="withdraw-table">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>User ID</th>
+                    <th>Bank Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>john.doe</td>
+                    <td>Example Bank</td>
+                    <td>$500</td>
+                    <td>2024-02-04</td>
+                    <td>Approved</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <button class="back-button" onclick="goBackToAdminPortal()">Back to Admin Portal</button>
+    </div>
+
+    <script>
+        function goBackToAdminPortal() {
+            window.location.href = "AdminPortal.html"; // Update with your admin portal page
+        }
+    </script>
+</body>
+
+</html>
