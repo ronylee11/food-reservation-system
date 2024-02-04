@@ -3,6 +3,7 @@ const ejs = require("ejs");
 const ejsMate = require("ejs-mate");
 const path = require("path");
 const pages = require("./controllers/pages");
+const users = require("./controllers/users");
 const mongoose = require("mongoose"); // connect database
 
 mongoose.set("strictQuery", false); // disable deprecation warning
@@ -20,6 +21,10 @@ app.set("view engine", "ejs"); // use .ejs files for frontend
 app.use(express.static(path.join(__dirname, "public"))); // connect css & js files in /public
 
 app.get("/", pages.index);
+
+app.get("/login", users.login);
+
+app.get("/register", users.register);
 
 app.listen(3000, () => {
   console.log("App is running on 3000!");
