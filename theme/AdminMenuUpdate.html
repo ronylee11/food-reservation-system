@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<style>
+    .container {
+        border: 1px solid #000;
+        padding: 20px;
+        width: 800px;
+        margin: 20px auto;
+        position: relative; 
+    }
+
+    .image-container {
+        display: flex;
+    }
+
+    .image-container img {
+        width: 200px;
+        height: auto;
+        margin-right: 100px;
+        margin-left: 90px;
+    }
+
+    .button-row {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 90px;
+        margin-right: 76px;
+    }
+
+    .button-container .btn {
+        height: 50px;
+        width: 200px;
+    }
+
+    .back-button {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+    }
+
+    h6 {
+    display: inline;
+    margin-left: 120px;
+    margin-right: 120.4px; 
+    }
+</style>
+
+
+
+
+<body>
+    <div class="container">
+        <h1>
+            <center>Menu Update</center>
+        </h1>
+
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuwzOJ8VtHMt625BYE5i3EzN309PeftdhJyA&usqp=CAU"
+                alt="First Image">
+            <img src="data:image/png;base64,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"
+                alt="Second Image">
+        </div>
+        <h6>Fried Noodle - RM5</h6>
+        <div class="button-row">
+            <div class="button-container">
+                <button class="btn btn-outline-dark btn-block btn-standard"
+                    onclick="redirectTo()">Select</button>
+                <button class="btn btn-outline-dark btn-block btn-standard"
+                    onclick="redirectTo()">Add Menu</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="back-button">
+            <button class="btn btn-outline-dark btn-block btn-standard" style="height: 50px;" onclick="redirectTo('AdminPortal.html')">Back</button>
+        </div>
+
+
+    </div>
+
+    <!-- <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script> -->
+</body>
+
+</html>
