@@ -10,12 +10,24 @@
   <form href="/login" method="POST">
     <div class="m-2">
       <label for="userId">User ID :</label>
-      <input type="text" name="userID" required="required" />
+      <input
+        type="text"
+        name="userID"
+        id="userID"
+        required="required"
+        class="form-control"
+      />
     </div>
 
     <div class="m-2">
       <label for="password">Password :</label>
-      <input type="password" name="password" required="required" />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        required="required"
+        class="form-control"
+      />
     </div>
     <a id="backButton" class="btn border border-black m-2" href="/">Back</a>
     <button type="submit" class="btn border border-black">Confirm</button>

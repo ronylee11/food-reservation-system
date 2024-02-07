@@ -10,12 +10,15 @@ module.exports.register = (req, res) => {
 };
 
 module.exports.createUser = (req, res) => {
-  const { username, password, email } = req.body;
-  const user = new User({ username, password, email });
+  const { username, phoneNumber, password } = req.body;
+  const user = new User({ username, phoneNumber, password });
   user
     .save()
     .then((result) => {
       res.json(result);
     })
     .catch((err) => console.log(err));
+
+  req.flash("success", "Successfully registered! Please login.");
+  res.redirect("/");
 };
