@@ -5,8 +5,11 @@ const path = require("path");
 const session = require("express-session"); // flash dependency
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo"); // flash dependency
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
 const pages = require("./controllers/pages");
 const users = require("./controllers/users");
+const User = require("./models/user");
 const mongoose = require("mongoose"); // connect database
 
 const dbUrl =
@@ -57,6 +60,13 @@ const sessionConfig = {
 app.use(session(sessionConfig)); // enable session
 app.use(flash()); // enable flash messages (req.flash())
 
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // flash middleware
 app.use((req, res, next) => {
   //console.log(req.query);
@@ -74,6 +84,16 @@ app.get("/login", users.login);
 app.get("/register", users.register);
 
 app.post("/register", users.createUser);
+
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    failureFlash: true,
+    failureRedirect: "/login",
+    keepSessionInfo: true,
+  }),
+  users.loginUser
+);
 
 app.listen(3000, () => {
   console.log("App is running on 3000!");
