@@ -1,4 +1,4 @@
-require("dotenv").config(); // load environment variables // deploy
+//require("dotenv").config(); // load environment variables // deploy
 const express = require("express");
 const ejs = require("ejs");
 const ejsMate = require("ejs-mate");
@@ -85,6 +85,8 @@ app.get("/", pages.index);
 
 app.use("/", userRoutes);
 
-app.listen(3000, () => {
-  console.log("App is running on 3000!");
+let port = process.env.PORT || 3000;
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`App is running on ${port}!`);
 });
