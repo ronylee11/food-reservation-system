@@ -2,11 +2,11 @@ module.exports.index = (req, res) => {
   // check userType and redirect to appropriate page
   try {
     if (req.user.userType && req.user.userType === "admin") {
-      return res.redirect("/admin");
+      res.render("admin/index");
     } else if (req.user.userType === "canteenWorker") {
-      return res.redirect("/canteenWorker");
+      res.render("canteenWorker/index");
     } else if (req.user.userType === "parent") {
-      return res.redirect("/parent");
+      res.render("parent/index");
     } else {
       res.render("index");
     }
@@ -15,8 +15,4 @@ module.exports.index = (req, res) => {
   }
 
   res.render("index");
-};
-
-module.exports.parentIndex = (req, res) => {
-  res.render("parent/parentPortal");
 };

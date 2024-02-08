@@ -81,8 +81,6 @@ app.use((req, res, next) => {
 
 app.get("/", pages.index);
 
-app.get("/parent", pages.parentIndex);
-
 app.use("/", userRoutes);
 
 app.listen(3000, () => {

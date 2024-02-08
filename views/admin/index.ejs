@@ -1,0 +1,49 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container portal-container">
+  <div class="row justify-content-center mb-2">
+    <h1 class="text-center">Admin Portal</h1>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        User Data Management
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        View Withdraw
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        View Payment
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        View Top-Up
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Menu Update
+      </button>
+    </div>
+  </div>
+  <form action="/logout" method="POST">
+    <div class="logout-button">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Log Out
+      </button>
+    </div>
+  </form>
+</div>

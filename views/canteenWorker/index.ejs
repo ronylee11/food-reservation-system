@@ -1,0 +1,49 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container portal-container">
+  <div class="row justify-content-center mb-2">
+    <h1 class="text-center">Canteen Worker Portal</h1>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Food Order
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Withdraw
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Check Account Balance
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        QR Scanner
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Inventory Management
+      </button>
+    </div>
+  </div>
+  <form action="/logout" method="POST">
+    <div class="logout-button">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Log Out
+      </button>
+    </div>
+  </form>
+</div>
