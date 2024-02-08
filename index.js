@@ -11,6 +11,8 @@ const pages = require("./controllers/pages");
 const users = require("./controllers/users");
 const User = require("./models/user");
 const mongoose = require("mongoose"); // connect database
+// routes
+const userRoutes = require("./routes/users");
 
 const dbUrl =
   process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system"; // 27017 is the default mongodb port
@@ -79,21 +81,10 @@ app.use((req, res, next) => {
 
 app.get("/", pages.index);
 
-app.get("/login", users.login);
 
-app.get("/register", users.register);
+app.use("/", userRoutes);
 
-app.post("/register", users.createUser);
 
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    failureFlash: true,
-    failureRedirect: "/login",
-    keepSessionInfo: true,
-  }),
-  users.loginUser
-);
 
 app.listen(3000, () => {
   console.log("App is running on 3000!");
