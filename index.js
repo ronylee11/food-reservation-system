@@ -1,3 +1,4 @@
+//require("dotenv").config(); // load environment variables // deploy
 const express = require("express");
 const ejs = require("ejs");
 const ejsMate = require("ejs-mate");
@@ -16,6 +17,7 @@ const userRoutes = require("./routes/users");
 
 const dbUrl =
   process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system"; // 27017 is the default mongodb port
+console.log(dbUrl);
 mongoose.set("strictQuery", false); // disable deprecation warning
 mongoose.connect(dbUrl);
 const db = mongoose.connection;

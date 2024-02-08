@@ -1,7 +1,10 @@
+//require("dotenv").config();
 const mongoose = require("mongoose");
 const User = require("../models/user");
 
-mongoose.connect("mongodb://localhost:27017/food_reservation_system");
+dbUrl =
+  process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system";
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 
