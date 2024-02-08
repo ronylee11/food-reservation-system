@@ -8,8 +8,16 @@ npm i
 
 ## Run Instruction
 
+Seed database for sample data
+
 ```
-npm start
+npm run seed
+```
+
+Run website in development
+
+```
+npm run start
 ```
 
 live-reloading
