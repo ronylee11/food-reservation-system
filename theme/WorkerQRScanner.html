@@ -9,64 +9,24 @@
     <title>QR Code Scanner</title>
 
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .QRScanner-container {
-            border: 1px solid #000;
-            padding: 20px;
-            width: 800px;
-            margin: 20px auto;
-            position: relative;
-        }
-
-
-        main {
-
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            width: 800px;
-            margin: 20px auto;
-            position: relative;
-        }
-
-        #reader {
-            width: 600px;
-        }
-
-        #result {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        #backButton {
-            margin: 10px;
-            position: right;
-        }
-    </style>
 </head>
 
-<body>
-    <div class="row justify-content-center mb-2"></div>
-    <h1 class="text-center">QR Scanner</h1>
-    </div>
-    <div class="container QRScanner-container">
-        <main>
-            <div id="reader"></div>
-            <div id="result"></div>
-        </main>
-        <div id="backButton">
-            <button class="btn btn-outline-dark" onclick="goBack()">Back</button>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">QR Scanner</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div id="reader"></div>
+                <div id="result" class="text-center"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark" onclick="goBack()">Back</button>
+            </div>
         </div>
     </div>
+
     <script>
         const scanner = new Html5QrcodeScanner('reader', {
             qrbox: {
