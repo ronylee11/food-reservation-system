@@ -1,0 +1,49 @@
+<%layout('layouts/boilerplate.ejs')%>
+
+<div class="container portal-container">
+  <div class="row justify-content-center mb-2">
+    <h1 class="text-center">Parent Portal</h1>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Food Reservation
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Top Up
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Withdraw
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Check Account Balance
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Food Order
+      </button>
+    </div>
+  </div>
+  <form action="/logout" method="POST">
+    <div class="logout-button">
+      <button class="btn btn-outline-dark btn-block btn-standard">
+        Log Out
+      </button>
+    </div>
+  </form>
+</div>
