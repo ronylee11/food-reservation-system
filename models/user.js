@@ -5,6 +5,11 @@ const passportLocalMongoose = require("passport-local-mongoose"); // username, p
 
 const userSchema = new Schema({
   phoneNumber: Number,
+  userType: {
+    type: String,
+    enum: ["admin", "canteenWorker", "parent"],
+    default: "parent",
+  },
 });
 userSchema.plugin(passportLocalMongoose); // includes username, password in schema
 
