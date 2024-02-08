@@ -8,6 +8,12 @@ npm i
 
 ## Run Instruction
 
+Build project
+
+```
+npm run build
+```
+
 Seed database for sample data
 
 ```
