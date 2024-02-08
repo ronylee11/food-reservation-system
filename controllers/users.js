@@ -29,3 +29,11 @@ module.exports.loginUser = (req, res) => {
   delete req.session.returnTo;
   res.redirect(redirectUrl);
 };
+
+module.exports.logoutUser = (req, res) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    req.flash("success", "Successfully logged out!");
+    res.redirect("/");
+  });
+};
