@@ -1,14 +1,19 @@
 <%layout('layouts/boilerplate.ejs')%>
 
-<div class="container portal-container">
+<div
+  class="container d-flex justify-content-center align-items-center flex-column vh-100 vw-100"
+>
   <div class="row justify-content-center mb-2">
     <h1 class="text-center">Parent Portal</h1>
   </div>
   <div class="row justify-content-center mb-3">
     <div class="col-md-6 text-center">
-      <button class="btn btn-outline-dark btn-block btn-standard">
+      <a
+        class="btn btn-outline-dark btn-block btn-standard"
+        href="/parent/food_reservation"
+      >
         Food Reservation
-      </button>
+      </a>
     </div>
   </div>
   <div class="row justify-content-center mb-3">
@@ -39,11 +44,11 @@
       </button>
     </div>
   </div>
-  <form action="/logout" method="POST">
-    <div class="logout-button">
+  <div class="align-self-start">
+    <form action="/logout" method="POST">
       <button class="btn btn-outline-dark btn-block btn-standard">
         Log Out
       </button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
