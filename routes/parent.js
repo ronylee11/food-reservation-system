@@ -13,4 +13,16 @@ router
     .route("/top_up")
     .get(isParent, parent.topUp)
 
+router
+    .route("/withdraw")
+    .get(isParent, parent.withdraw)
+
+router
+    .route("/view_balance")
+    .get(isParent, parent.viewBalance)
+
+router
+    .route("/food_order")
+    .get(isParent, parent.foodOrder)
+
 module.exports = router;
