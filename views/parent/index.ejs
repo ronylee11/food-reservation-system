@@ -1,8 +1,6 @@
 <%layout('layouts/boilerplate.ejs')%>
 
-<div
-  class="container d-flex justify-content-center align-items-center flex-column vh-100 vw-100"
->
+<div class="container">
   <div class="row justify-content-center mb-2">
     <h1 class="text-center">Parent Portal</h1>
   </div>
@@ -47,7 +45,7 @@
       </button>
     </div>
   </div>
-  <div class="align-self-start">
+  <div>
     <form action="/logout" method="POST">
       <button class="btn btn-outline-dark btn-block btn-standard">
         Log Out
