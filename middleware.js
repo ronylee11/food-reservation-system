@@ -5,3 +5,13 @@ module.exports.isLoggedIn = (req, res, next) => {
   }
   next();
 };
+
+module.exports.isParent = (req, res, next) => {
+  if (typeof req.user !== "undefined") {
+    if (req.user.userType !== "parent") {
+      req.flash("error", "You must be a parent to access this page!");
+      return res.redirect("/");
+    }
+  }
+  next();
+};

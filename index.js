@@ -14,6 +14,7 @@ const User = require("./models/user");
 const mongoose = require("mongoose"); // connect database
 // routes
 const userRoutes = require("./routes/users");
+const parentRoutes = require("./routes/parent");
 
 const dbUrl =
   process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system"; // 27017 is the default mongodb port
@@ -82,6 +83,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/", pages.index);
+
+app.use("/parent", parentRoutes);
 
 app.use("/", userRoutes);
 
