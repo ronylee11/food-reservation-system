@@ -11,10 +11,10 @@ module.exports.index = (req, res) => {
       } else {
         res.render("index");
       }
+    } else {
+      res.render("index");
     }
   } catch (e) {
     console.log(e);
   }
-
-  res.render("index");
 };
