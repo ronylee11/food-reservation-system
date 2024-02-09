@@ -1,0 +1,56 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container border p-4 my-4">
+  <h1 class="mb-4 text-center">Top-Up</h1>
+  <div class="text-center">
+    <div class="mb-3 row justify-content-center">
+      <label for="amount" class="col-md-2 col-form-label">Enter amount:</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="amount" />
+      </div>
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+      <label for="cardNumber" class="col-md-2 col-form-label"
+        >Enter card number:</label
+      >
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="cardNumber" />
+      </div>
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+      <label for="expiry" class="col-md-2 col-form-label"
+        >Enter expiry (DD/MM):</label
+      >
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="expiry" />
+      </div>
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+      <label for="securityCode" class="col-md-2 col-form-label"
+        >Enter security code:</label
+      >
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="securityCode" />
+      </div>
+    </div>
+
+    <div class="mb-3 row justify-content-center">
+      <label for="cardholderName" class="col-md-2 col-form-label"
+        >Enter cardholder name:</label
+      >
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="cardholderName" />
+      </div>
+    </div>
+
+    <button class="btn btn-primary mb-3" onclick="submitTopUp()">
+      Submit Top-Up
+    </button>
+  </div>
+  <div class="text-center">
+    <a class="btn btn-secondary" href="/"> Back to Parent Portal </a>
+  </div>
+</div>

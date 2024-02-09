@@ -9,4 +9,8 @@ router
     .route("/food_reservation")
     .get(isParent, parent.foodReservation)
 
+router
+    .route("/top_up")
+    .get(isParent, parent.topUp)
+
 module.exports = router;
