@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const { isParent } = require("../middleware");
 const user = require("../controllers/users");
-const parent = require("../controllers/parent");
+const parent = require("../controllers/parents");
 
 router
     .route("/food_reservation")
