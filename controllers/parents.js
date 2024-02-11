@@ -14,7 +14,8 @@ module.exports.withdraw = (req, res) => {
 };
 
 module.exports.viewBalance = (req, res) => {
-  res.render("parent/viewBalance");
+  const { accountBalance } = parent;
+  res.render("parent/viewBalance", { accountBalance });
 };
 
 module.exports.foodOrder = (req, res) => {

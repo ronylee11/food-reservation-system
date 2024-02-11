@@ -3,8 +3,12 @@
 <div class="container text-center">
   <h1 class="mb-4">View Balance</h1>
   <div class="mb-4">
+    <%if (typeof accountBalance !== "undefined") {%>
     <div class="font-weight-bold">Available Balance:</div>
-    <div class="font-size-24" id="balanceValue">1234.56</div>
+    <div class="font-size-24" id="balanceValue">RM <%=accountBalance%></div>
+    <%} else {%>
+    <div class="font-weight-bold">No balance available</div>
+    <%}%>
   </div>
   <a class="btn btn-primary" href="/"> Back to Parent Portal </a>
 </div>
