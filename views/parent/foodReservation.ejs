@@ -10,15 +10,20 @@
       <div class="card">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuwzOJ8VtHMt625BYE5i3EzN309PeftdhJyA&usqp=CAU"
-          class="card-img-top img-fluid object-fit-contain p-5"
+          class="card-img-top img-fluid object-fit-contain p-2"
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">Fried Noodle</h5>
-          <p class="card-text">RM5</p>
-          <button class="btn btn-outline-dark btn-block btn-standard">
-            SELECT
-          </button>
+          <form action="/parent/food_reservation" method="POST">
+            <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="Fried Noodle" readonly></input>
+            <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM5" readonly></input>
+            <button
+              class="btn btn-outline-dark btn-block btn-standard"
+              type="submit"
+            >
+              SELECT
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -27,15 +32,20 @@
       <div class="card">
         <img
           src="https://rasamalaysia.com/wp-content/uploads/2007/01/nasi_lemak-1-500x500.jpg"
-          class="card-img-top img-fluid object-fit-contain p-5"
+          class="card-img-top img-fluid object-fit-contain p-2"
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">Nasi Lemak</h5>
-          <p class="card-text">RM3</p>
-          <button class="btn btn-outline-dark btn-block btn-standard">
-            SELECT
-          </button>
+          <form action="/parent/food_reservation" method="POST">
+            <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="Nasi Lemak" readonly></input>
+            <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM3" readonly></input>
+            <button
+              class="btn btn-outline-dark btn-block btn-standard"
+              type="submit"
+            >
+              SELECT
+            </button>
+          </form>
         </div>
       </div>
     </div>
