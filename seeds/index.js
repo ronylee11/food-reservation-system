@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const User = require("../models/user");
+const Parent = require("../models/parent");
 const Food = require("../models/food");
 
 dbUrl =
@@ -17,6 +18,8 @@ db.once("open", () => {
 const seedDB = async () => {
   // clear all users
   await User.deleteMany({});
+  await Parent.deleteMany({});
+  await Food.deleteMany({});
 
   // create admin user
   const user = new User({
