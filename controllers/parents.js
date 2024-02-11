@@ -55,11 +55,3 @@ module.exports.updateFoodOrder = async (req, res) => {
   parent.save();
   res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };
-
-module.exports.clearFoodOrder = async (req, res) => {
-  const userID = new ObjectId(req.user._id);
-  const parent = await Parent.findOne({ user: userID });
-  parent.foodOrderHistory = [];
-  parent.save();
-  res.redirect("/parent/food_order");
-};
