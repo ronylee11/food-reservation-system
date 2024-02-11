@@ -1,4 +1,4 @@
-// Define Schema for each User
+// Define Schema for each Parent
 const mongoose = require("mongoose");
 const { Schema, model: Model } = mongoose;
 
