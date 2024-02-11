@@ -56,7 +56,7 @@ module.exports.updateFoodOrder = async (req, res) => {
     parent.save();
     res.redirect("/parent/food_order");
   } else {
-    req.flash("error", "Insufficient balance");
+    req.flash("error", "Insufficient balance. Please top up your account.");
     res.redirect("/");
   }
 };
