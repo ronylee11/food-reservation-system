@@ -70,7 +70,7 @@ const seedDB = async () => {
     imageUrl:
       "https://rasamalaysia.com/wp-content/uploads/2007/01/nasi_lemak-1-500x500.jpg",
     foodName: "Nasi Lemak",
-    price: 5,
+    price: 3,
   });
   await food2.save();
   console.log("Nasi Lemak created");
