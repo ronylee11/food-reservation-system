@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const User = require("../models/user");
+const Food = require("../models/food");
 
 dbUrl =
   process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system";
@@ -54,6 +55,25 @@ const seedDB = async () => {
     "canteenWorker3"
   );
   console.log("Canteen worker 3 created");
+
+  // create 2 food, nasi lemak and fried noodle
+  const food1 = new Food({
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuwzOJ8VtHMt625BYE5i3EzN309PeftdhJyA&usqp=CAU",
+    foodName: "Fried Noodle",
+    price: 5,
+  });
+  await food1.save();
+  console.log("Fried Noodle created");
+
+  const food2 = new Food({
+    imageUrl:
+      "https://rasamalaysia.com/wp-content/uploads/2007/01/nasi_lemak-1-500x500.jpg",
+    foodName: "Nasi Lemak",
+    price: 5,
+  });
+  await food2.save();
+  console.log("Nasi Lemak created");
 };
 
 seedDB().then(() => {

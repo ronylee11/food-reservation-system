@@ -1,8 +1,10 @@
 const Parent = require("../models/parent");
 const parent = new Parent();
+const Food = require("../models/food");
 
-module.exports.foodReservation = (req, res) => {
-  res.render("parent/foodReservation");
+module.exports.foodReservation = async (req, res) => {
+  const foodsList = await Food.find({});
+  res.render("parent/foodReservation", { foodsList });
 };
 
 module.exports.topUp = (req, res) => {

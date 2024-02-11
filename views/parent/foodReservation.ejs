@@ -6,49 +6,29 @@
   </h1>
 
   <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuwzOJ8VtHMt625BYE5i3EzN309PeftdhJyA&usqp=CAU"
-          class="card-img-top img-fluid object-fit-contain p-2"
-          alt="..."
-        />
-        <div class="card-body">
-          <form action="/parent/food_reservation" method="POST">
-            <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="Fried Noodle" readonly></input>
-            <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM5" readonly></input>
-            <button
-              class="btn btn-outline-dark btn-block btn-standard"
-              type="submit"
-            >
-              SELECT
-            </button>
-          </form>
-        </div>
+      <div class="col-md-6">
+          <div class="card">
+              <% for (let food of foodsList) { %>
+              <img
+                      src="<%=food.imageUrl%>"
+                      class="card-img-top img-fluid object-fit-contain p-2"
+                      alt="..."
+                      />
+                      <div class="card-body">
+                          <form action="/parent/food_reservation" method="POST">
+                              <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="<%=food.foodName%>" readonly></input>
+                              <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM<%=food.price%>" readonly></input>
+                              <button
+                                      class="btn btn-outline-dark btn-block btn-standard"
+                                      type="submit"
+                                      >
+                                      SELECT
+                              </button>
+                          </form>
+                      </div>
+                      <%} %>
+          </div>
       </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="card">
-        <img
-          src="https://rasamalaysia.com/wp-content/uploads/2007/01/nasi_lemak-1-500x500.jpg"
-          class="card-img-top img-fluid object-fit-contain p-2"
-          alt="..."
-        />
-        <div class="card-body">
-          <form action="/parent/food_reservation" method="POST">
-            <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="Nasi Lemak" readonly></input>
-            <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM3" readonly></input>
-            <button
-              class="btn btn-outline-dark btn-block btn-standard"
-              type="submit"
-            >
-              SELECT
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
   </div>
   <a class="btn btn-outline-dark btn-block btn-standard" href="/">Back</a>
 </div>
