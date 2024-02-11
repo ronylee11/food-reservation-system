@@ -30,4 +30,8 @@ module.exports.updateFoodOrder = (req, res) => {
   parent.foodOrderHistory = foodOrderHistory;
   res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };
+
+module.exports.clearFoodOrder = (req, res) => {
+  parent.foodOrderHistory = [];
+  res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };

@@ -9,6 +9,7 @@ router
     .route("/food_reservation")
     .get(isParent, parent.foodReservation)
     .post(isParent, parent.updateFoodOrder)
+    .delete(isParent, parent.clearFoodOrder)
 
 router
     .route("/top_up")
