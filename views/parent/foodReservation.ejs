@@ -17,7 +17,10 @@
                       <div class="card-body">
                           <form action="/parent/food_reservation" method="POST">
                               <input type="text" class="card-title border border-0 row ms-2" name="foodType" value="<%=food.foodName%>" readonly></input>
-                              <input type="text" class="card-text border border-0 row ms-2 mb-3" name="price" value="RM<%=food.price%>" readonly></input>
+                              <div class="input-group">
+                                  <span>RM</span>
+                              <input type="text" class="card-text border border-0 row ms-2 mb-3 inline" name="price" value="<%=food.price%>" readonly></input>
+</div>
                               <button
                                       class="btn btn-outline-dark btn-block btn-standard"
                                       type="submit"

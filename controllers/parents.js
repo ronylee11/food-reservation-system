@@ -51,6 +51,7 @@ module.exports.updateFoodOrder = async (req, res) => {
   const { foodType, price } = req.body;
   const date = new Date();
   parent.foodOrderHistory.push({ foodType, price, date });
+  parent.accountBalance -= parseInt(price);
   parent.save();
   res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };
