@@ -10,18 +10,18 @@
         <th>User ID</th>
         <th>Phone Number</th>
         <th>Password</th>
-        <th>Active Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td contenteditable="false">Admin</td>
-        <td contenteditable="false">John</td>
-        <td contenteditable="false">201</td>
-        <td contenteditable="false">011-11232345</td>
-        <td contenteditable="false">********</td>
-        <td contenteditable="false">Active</td>
-      </tr>
+      <% users.forEach(function(user) { %>
+        <tr>
+          <td contenteditable="false"><%= user.userType %></td>
+          <td contenteditable="false"><%= user.username %></td>
+          <td contenteditable="false"><%= user._id %></td>
+          <td contenteditable="false"><%= user.phoneNumber %></td>
+          <td contenteditable="false">********</td>
+        </tr>
+      <% }); %>
     </tbody>
   </table>
 

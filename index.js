@@ -102,6 +102,9 @@ app.get("views/canteenWorker/QR", (req, res) => {
 
 app.use("/", userRoutes);
 
+const usersRoute = require("./routes/users");
+app.use("/", usersRoute);
+
 let port = process.env.PORT || 3000;
 
 app.listen(port, "0.0.0.0", () => {
