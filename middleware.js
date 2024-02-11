@@ -7,31 +7,25 @@ module.exports.isLoggedIn = (req, res, next) => {
 };
 
 module.exports.isParent = (req, res, next) => {
-  if (typeof req.user !== "undefined") {
-    if (req.user.userType !== "parent") {
-      req.flash("error", "You must be a parent to access this page!");
-      return res.redirect("/");
-    }
+  if (typeof req.user === "undefined" || req.user.userType !== "parent") {
+    return res.redirect("/");
   }
   next();
 };
 
 module.exports.isCanteenWorker = (req, res, next) => {
-  if (typeof req.user !== "undefined") {
-    if (req.user.userType !== "canteenWorker") {
-      req.flash("error", "You must be a worker to access this page!");
-      return res.redirect("/");
-    }
+  if (
+    typeof req.user === "undefined" ||
+    req.user.userType !== "canteenWorker"
+  ) {
+    return res.redirect("/");
   }
   next();
 };
 
 module.exports.isAdmin = (req, res, next) => {
-  if (typeof req.user !== "undefined") {
-    if (req.user.userType !== "admin") {
-      req.flash("error", "You must be admin to access this page!");
-      return res.redirect("/");
-    }
+  if (typeof req.user === "undefined" || req.user.userType !== "admin") {
+    return res.redirect("/");
   }
   next();
 };
