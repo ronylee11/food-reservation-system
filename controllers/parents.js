@@ -50,8 +50,13 @@ module.exports.updateFoodOrder = async (req, res) => {
   const parent = await Parent.findOne({ user: userID });
   const { foodType, price } = req.body;
   const date = new Date();
-  parent.foodOrderHistory.push({ foodType, price, date });
-  parent.accountBalance -= parseInt(price);
-  parent.save();
-  res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
+  if (parent.accountBalance > parseInt(price)) {
+    parent.foodOrderHistory.push({ foodType, price, date });
+    parent.accountBalance -= parseInt(price);
+    parent.save();
+    res.redirect("/parent/food_order");
+  } else {
+    req.flash("error", "Insufficient balance");
+    res.redirect("/");
+  }
 };
