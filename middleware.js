@@ -15,3 +15,13 @@ module.exports.isParent = (req, res, next) => {
   }
   next();
 };
+
+module.exports.isCanteenWorker = (req, res, next) => {
+  if (typeof req.user !== "undefined") {
+    if (req.user.userType !== "canteenWorker") {
+      req.flash("error", "You must be a worker to access this page!");
+      return res.redirect("/");
+    }
+  }
+  next();
+};
