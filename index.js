@@ -1,6 +1,7 @@
 require("dotenv").config(); // load environment variables // deploy
 const express = require("express");
 const ejs = require("ejs");
+const Html5QrcodeScanner = require('html5-qrcode');// Add QrCode 
 const ejsMate = require("ejs-mate");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -93,6 +94,11 @@ app.use("/parent", parentRoutes);
 app.use("/canteenWorker", canteenWorkerRoutes);
 
 app.use("/admin", adminRoutes);
+
+//QR scanner thing 
+app.get("views/canteenWorker/QR", (req, res) => {
+  res.render("views/canteenWorker/QR");
+});
 
 app.use("/", userRoutes);
 
