@@ -1,3 +1,5 @@
+const Parent = require("../models/parent");
+
 module.exports.foodReservation = (req, res) => {
   res.render("parent/foodReservation");
 };

@@ -15,6 +15,10 @@ const parentSchema = new Schema({
     type: Array,
     default: [],
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
-module.exports = Model("Parent", userSchema);
+module.exports = Model("Parent", parentSchema);
