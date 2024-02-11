@@ -1,0 +1,50 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Withdraw</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="amount" class="label-text">Enter amount:</label>
+            <div class="input-field-container">
+                <input type="text" id="amount" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bankName" class="label-text">Enter bank name:</label>
+            <div class="input-field-container">
+                <input type="text" id="bankName" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="accountNumber" class="label-text">Enter account number:</label>
+            <div class="input-field-container">
+                <input type="text" id="accountNumber" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="accountHolderName" class="label-text">Enter account holder name:</label>
+            <div class="input-field-container">
+                <input type="text" id="accountHolderName" class="form-control">
+            </div>
+        </div>
+
+        <button class="btn btn-primary submit-button" onclick="submitWithdraw()">Submit Withdraw</button>
+    </div>
+    <div class="button-row mt-4 text-center">
+        <a class="btn btn-secondary" href="/">Back to Canteen Worker Portal</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function submitWithdraw() {
+        alert("Withdraw submitted successfully!");
+    }
+
+    function goBackToCanteenWorkerPortal() {
+        window.location.href = "/";
+    }
+</script>
