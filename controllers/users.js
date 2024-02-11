@@ -1,5 +1,6 @@
 // Using the User model, retrieve data and respond data
 const User = require("../models/user");
+const Parent = require("../models/parent");
 
 module.exports.login = (req, res) => {
   res.render("users/login");
@@ -14,6 +15,8 @@ module.exports.createUser = async (req, res) => {
     const { username, phoneNumber, password } = req.body;
     const user = new User({ username, phoneNumber });
     await User.register(user, password);
+    const parent = new Parent({ user: user._id }); // create a parent model in database also, and link by id
+    await parent.save();
     req.flash("success", "Successfully registered! Please login.");
     res.redirect("/");
   } catch (e) {

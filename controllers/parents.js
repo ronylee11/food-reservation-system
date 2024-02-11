@@ -1,6 +1,6 @@
 const Parent = require("../models/parent");
-const parent = new Parent();
 const Food = require("../models/food");
+const ObjectId = require("mongodb").ObjectId;
 
 module.exports.foodReservation = async (req, res) => {
   const foodsList = await Food.find({});
@@ -15,26 +15,32 @@ module.exports.withdraw = (req, res) => {
   res.render("parent/withdraw");
 };
 
-module.exports.viewBalance = (req, res) => {
-  const { accountBalance } = parent;
-  res.render("parent/viewBalance", { accountBalance });
+module.exports.viewBalance = async (req, res) => {
+  const userID = new ObjectId(req.user._id);
+  const parent = await Parent.findOne({ user: userID });
+  res.render("parent/viewBalance", { accountBalance: parent.accountBalance });
 };
 
-module.exports.foodOrder = (req, res) => {
+module.exports.foodOrder = async (req, res) => {
+  const userID = new ObjectId(req.user._id);
+  const parent = await Parent.findOne({ user: userID });
   res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };
 
-module.exports.updateFoodOrder = (req, res) => {
-  const { foodOrderHistory } = parent;
+module.exports.updateFoodOrder = async (req, res) => {
+  const userID = new ObjectId(req.user._id);
+  const parent = await Parent.findOne({ user: userID });
   const { foodType, price } = req.body;
   const date = new Date();
-  foodOrderHistory.push({ foodType, price, date });
-  console.log(foodOrderHistory);
-  parent.foodOrderHistory = foodOrderHistory;
+  parent.foodOrderHistory.push({ foodType, price, date });
+  parent.save();
   res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
 };
 
-module.exports.clearFoodOrder = (req, res) => {
+module.exports.clearFoodOrder = async (req, res) => {
+  const userID = new ObjectId(req.user._id);
+  const parent = await Parent.findOne({ user: userID });
   parent.foodOrderHistory = [];
-  res.render("parent/foodOrder", { foodOrderHistory: parent.foodOrderHistory });
+  parent.save();
+  res.redirect("/parent/food_order");
 };
