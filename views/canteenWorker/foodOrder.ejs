@@ -1,41 +1,35 @@
-<%layout('layouts/boilerplate')%>
+<% layout('layouts/boilerplate') %>
 
-    <div class="container my-4">
-        <h1 class="mt-4 mb-4 text-center">
-            Food Order
-        </h1>
-        <h2 class="mb-3">Order List:</h2>
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+<div class="container my-4">
+    <h1 class="mt-4 mb-4 text-center">
+        Food Order
+    </h1>
+    <h2 class="mb-3">Order List:</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% foodReservations.forEach((reservation) => { %>
                 <tr>
-                    <th>Student ID</th>
-                    <th>Student Name</th>
-                    <th>Food</th>
-                    <th>Customisation</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
                     <td>
-                        tudentID
+                        <%= reservation.foodType %>
                     </td>
                     <td>
-                        studentName
+                        <%= reservation.price %>
                     </td>
                     <td>
-                        food
-                    </td>
-                    <td>
-                        customisation
-                    </td>
-                    <td>
-                        date
+                        <%= reservation.date %>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-        <div class="text-center mt-4">
-            <a class="btn btn-primary" href="/"> Back to canteenWorker Portal </a>
-        </div>
+            <% }); %>
+        </tbody>
+    </table>
+    <div class="text-center mt-4">
+        <a class="btn btn-primary" href="/"> Back to canteenWorker Portal </a>
     </div>
+</div>
