@@ -14,10 +14,12 @@ router
 router
     .route("/top_up")
     .get(isParent, parent.topUp)
+    .post(isParent, parent.updateBalance)
 
 router
     .route("/withdraw")
     .get(isParent, parent.withdraw)
+    .post(isParent, parent.withdrawBalance)
 
 router
     .route("/view_balance")

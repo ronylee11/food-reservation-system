@@ -2,11 +2,11 @@
 
 <div class="container border p-4 my-4">
   <h1 class="mb-4 text-center">Top-Up</h1>
-  <div class="text-center">
+  <form action="/parent/top_up" method="POST" class="text-center">
     <div class="mb-3 row justify-content-center">
       <label for="amount" class="col-md-2 col-form-label">Enter amount:</label>
       <div class="col-md-6">
-        <input type="text" class="form-control" id="amount" />
+        <input type="text" class="form-control" id="amount" name="amount" />
       </div>
     </div>
 
@@ -49,7 +49,7 @@
     <button class="btn btn-primary mb-3" onclick="submitTopUp()">
       Submit Top-Up
     </button>
-  </div>
+  </form>
   <div class="text-center">
     <a class="btn btn-secondary" href="/"> Back to Parent Portal </a>
   </div>

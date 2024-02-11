@@ -2,11 +2,11 @@
 
 <div class="container border p-4 my-4">
   <h1 class="mb-4 text-center">Withdraw</h1>
-  <div class="text-center">
+  <form action="/parent/withdraw" method="POST" class="text-center">
     <div class="mb-3 row justify-content-center">
       <label for="amount" class="col-md-2 col-form-label">Enter amount:</label>
       <div class="col-md-6">
-        <input type="text" class="form-control" id="amount" />
+        <input type="text" class="form-control" id="amount" name="amount" />
       </div>
     </div>
 
@@ -15,7 +15,7 @@
         >Enter bank name:</label
       >
       <div class="col-md-6">
-        <input type="text" class="form-control" id="bankName" />
+        <input type="text" class="form-control" id="bankName" name="bankName" />
       </div>
     </div>
 
@@ -24,7 +24,12 @@
         >Enter account number:</label
       >
       <div class="col-md-6">
-        <input type="text" class="form-control" id="accountNumber" />
+        <input
+          type="text"
+          class="form-control"
+          id="accountNumber"
+          name="accountNumber"
+        />
       </div>
     </div>
 
@@ -33,14 +38,17 @@
         >Enter account holder name:</label
       >
       <div class="col-md-6">
-        <input type="text" class="form-control" id="accountHolderName" />
+        <input
+          type="text"
+          class="form-control"
+          id="accountHolderName"
+          name="accountHolderName"
+        />
       </div>
     </div>
 
-    <button class="btn btn-primary mb-3" onclick="submitWithdraw()">
-      Submit Withdraw
-    </button>
-  </div>
+    <button type="submit" class="btn btn-primary mb-3">Submit Withdraw</button>
+  </form>
   <div class="text-center">
     <a class="btn btn-secondary" href="/"> Back to Parent Portal </a>
   </div>
