@@ -1,0 +1,35 @@
+<%layout('layouts/boilerplate')%>
+
+<div class="container border p-4 mx-auto mt-5">
+  <h1 class="mt-4 mb-4 text-center">Transaction History</h1>
+  <h2>Transaction List:</h2>
+  <table class="table table-bordered table-striped">
+    <%if(parent.transactionHistory.length !== 0) {%>
+    <thead class="table-dark">
+      <tr>
+        <th>Description</th>
+        <th>Balance (RM)</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <%for (const transaction of parent.transactionHistory) {%>
+    <tbody>
+      <tr>
+        <td><%=transaction.description%></td>
+        <td><%=transaction.balance%></td>
+        <td><%=transaction.date%></td>
+      </tr>
+    </tbody>
+    <%}%> <% } else { %>
+    <tbody>
+      <tr>
+        <td colspan="3" class="text-center">No transaction history</td>
+      </tr>
+    </tbody>
+    <%}%>
+  </table>
+  <div class="text-center mt-4">
+    <a class="btn btn-primary" href="/"> Back to Parent Portal </a>
+  </div>
+</div>

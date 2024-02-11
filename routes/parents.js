@@ -28,4 +28,8 @@ router
     .route("/food_order")
     .get(isParent, parent.foodOrder)
 
+router
+    .route("/transaction_history")
+    .get(isParent, parent.transactionHistory)
+
 module.exports = router;
