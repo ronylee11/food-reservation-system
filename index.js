@@ -3,6 +3,7 @@ const express = require("express");
 const ejs = require("ejs");
 const ejsMate = require("ejs-mate");
 const path = require("path");
+const methodOverride = require("method-override");
 const session = require("express-session"); // flash dependency
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo"); // flash dependency
@@ -34,6 +35,7 @@ app.engine("ejs", ejsMate); // use ejs-mate for layout
 app.set("view engine", "ejs"); // use .ejs files for frontend
 app.use(express.static(path.join(__dirname, "public"))); // connect css & js files in /public
 app.use(express.urlencoded({ extended: true })); // parse url-encoded data
+app.use(methodOverride("_method")); // enable method override for PUT and DELETE requests
 
 // session settings
 const secret = process.env.SECRET || "thisshouldbeabettersecret!";
