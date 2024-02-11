@@ -1,4 +1,4 @@
-<%layout('layouts/boilerplate')%>
+<% layout('layouts/boilerplate') %>
 
 <div class="container my-4">
   <h1 class="mt-4 mb-4 text-center">User Data</h1>
@@ -27,9 +27,25 @@
 
   <div class="row justify-content-center mb-3">
     <div class="text-center">
-      <button class="btn btn-primary">Edit</button>
-      <button class="btn btn-success">Save</button>
+      <button class="btn btn-primary" onclick="enableEditing()">Edit</button>
+      <button class="btn btn-success" onclick="saveChanges()">Save</button>
       <a class="btn btn-secondary" href="/">Back to Admin Portal</a>
     </div>
   </div>
 </div>
+
+<script>
+  function enableEditing() {
+    var cells = document.querySelectorAll("#editableTable tbody td");
+    cells.forEach(function(cell) {
+      cell.contentEditable = true;
+    });
+  }
+
+  function saveChanges() {
+    var cells = document.querySelectorAll("#editableTable tbody td");
+    cells.forEach(function(cell) {
+      cell.contentEditable = false;
+    });
+  }
+</script>

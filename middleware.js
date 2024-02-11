@@ -25,3 +25,13 @@ module.exports.isCanteenWorker = (req, res, next) => {
   }
   next();
 };
+
+module.exports.isAdmin = (req, res, next) => {
+  if (typeof req.user !== "undefined") {
+    if (req.user.userType !== "admin") {
+      req.flash("error", "You must be admin to access this page!");
+      return res.redirect("/");
+    }
+  }
+  next();
+};
