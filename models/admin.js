@@ -3,21 +3,18 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const { Schema, model: Model } = mongoose;
 
-const userSchema = new Schema({
-  username: String,
-  password: String, // This field will be automatically handled by passport-local-mongoose
-  phoneNumber: String,
-  userType: {
-    type: String,
-    enum: ["admin", "canteenWorker", "parent"],
-    default: "parent",
-  },
+const adminSchema = new Schema({
   active: {
     type: Boolean,
     default: true,
   },
+  user: {
+    // link to user
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose); // add username and password to schema
 
-module.exports = Model("User", userSchema);
+module.exports = Model("Admin", adminSchema);

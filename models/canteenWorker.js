@@ -6,16 +6,19 @@ const canteenWorkerSchema = new Schema({
     type: Number,
     default: 0,
   },
- 
   foodOrderHistory: {
     type: Array,
     default: [],
   },
-
-  inventoryManage:{
+  inventoryManage: {
     type: Array,
     default: [],
-  }
+  },
+  user: {
+    // link to user
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
-module.exports = Model("CanteenWorker", userSchema);
+module.exports = Model("CanteenWorker", canteenWorkerSchema);
