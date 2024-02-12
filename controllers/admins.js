@@ -29,3 +29,13 @@ module.exports.userData = (req, res) => {
       res.status(500).send("Internal Server Error" + error.message);
     }
   };
+
+  module.exports.viewWithdraw = async (req, res) => {
+    try {
+        const withdrawalHistory = await Parent.find({}, { _id: 0, user: 1, transactionHistory: 1 }).populate('user', 'username');
+        res.render("admin/viewWithdraw", { withdrawalHistory });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error" + error.message);
+    }
+};

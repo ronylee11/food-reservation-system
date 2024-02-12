@@ -4,26 +4,35 @@
     <h1 class="mb-4 text-center">
         View Withdraw
     </h1>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
                 <th>User Name</th>
                 <th>User ID</th>
-                <th>Bank Name</th>
+                <th>Top-Up Method</th>
                 <th>Amount (RM)</th>
                 <th>Date</th>
                 <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>John</td>
-                <td>201</td>
-                <td>CIMB</td>
-                <td>50</td>
-                <td>2024-02-04</td>
-                <td>Approved</td>
-            </tr>
+            <% for (const withdrawal of withdrawalHistory) { %>
+                <% let prevBalance = null; %>
+                <% for (const transaction of withdrawal.transactionHistory) { %>
+                    <% let amountDiff = (prevBalance === null) ? transaction.balance : (transaction.balance - prevBalance); %>
+                    <% if (amountDiff < 0) { %>
+                        <tr>
+                            <td><%= withdrawal.user.username %></td>
+                            <td><%= withdrawal.user._id %></td>
+                            <td>Bank</td>
+                            <td><%= Math.abs(amountDiff) %></td>
+                            <td><%= transaction.date.toLocaleString() %></td>
+                            <td>Success</td>
+                        </tr>
+                    <% } %>
+                    <% prevBalance = transaction.balance; %>
+                <% } %>
+            <% } %>
         </tbody>
     </table>
     <div class="row justify-content-center mb-3">

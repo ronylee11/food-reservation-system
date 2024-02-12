@@ -19,20 +19,17 @@
         <% for (const topUp of topUpHistory) { %>
           <% let prevBalance = null; %>
           <% for (const transaction of topUp.transactionHistory) { %>
-            <tr>
-              <td><%= topUp.user.username %></td>
-              <td><%= topUp.user._id %></td>
-              <td>Card</td>
-              <td>
-                <% if (prevBalance === null) { %>
-                  <%= transaction.balance %>
-                <% } else { %>
-                  <%= transaction.balance - prevBalance %>
-                <% } %>
-              </td>
-              <td><%= transaction.date.toLocaleString() %></td>
-              <td>Success</td>
-            </tr>
+            <% let amountDiff = (prevBalance === null) ? transaction.balance : (transaction.balance - prevBalance); %>
+            <% if (amountDiff > 0) { %>
+              <tr>
+                <td><%= topUp.user.username %></td>
+                <td><%= topUp.user._id %></td>
+                <td>Card</td>
+                <td><%= amountDiff %></td>
+                <td><%= transaction.date.toLocaleString() %></td>
+                <td>Success</td>
+              </tr>
+            <% } %>
             <% prevBalance = transaction.balance; %>
           <% } %>
         <% } %>
