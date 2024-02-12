@@ -2,33 +2,45 @@
 
 <div class="container my-4">
     <h1 class="mt-4 mb-4 text-center">
-        View Top-Up
+      View Top-Up
     </h1>
     <table class="table table-bordered table-striped">
-        <thead class="table-dark">
+      <thead class="table-dark">
+        <tr>
+          <th>User Name</th>
+          <th>User ID</th>
+          <th>Top-Up Method</th>
+          <th>Amount (RM)</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const topUp of topUpHistory) { %>
+          <% let prevBalance = null; %>
+          <% for (const transaction of topUp.transactionHistory) { %>
             <tr>
-                <th>User Name</th>
-                <th>User ID</th>
-                <th>Top-Up Method</th>
-                <th>Amount (RM)</th>
-                <th>Date</th>
-                <th>Status</th>
+              <td><%= topUp.user.username %></td>
+              <td><%= topUp.user._id %></td>
+              <td>Card</td>
+              <td>
+                <% if (prevBalance === null) { %>
+                  <%= transaction.balance %>
+                <% } else { %>
+                  <%= transaction.balance - prevBalance %>
+                <% } %>
+              </td>
+              <td><%= transaction.date.toLocaleString() %></td>
+              <td>Success</td>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>201</td>
-                <td>CIMB</td>
-                <td>50.00</td>
-                <td>1/1/2024, 10:24 PM</td>
-                <td>Successful</td>
-            </tr>
-        </tbody>
+            <% prevBalance = transaction.balance; %>
+          <% } %>
+        <% } %>
+      </tbody>
     </table>
     <div class="row justify-content-center mb-3">
-        <div class="text-center">
-            <a class="btn btn-secondary" href="/">Back to Admin Portal</a>
-        </div>
+      <div class="text-center">
+        <a class="btn btn-secondary" href="/">Back to Admin Portal</a>
+      </div>
     </div>
-</div>
+  </div>
