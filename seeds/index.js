@@ -59,7 +59,7 @@ const seedDB = async () => {
 
   const food2 = new Food({
     imageUrl:
-      "https://rasamalaysia.com/wp-content/uploads/2007/01/nasi_lemak-1-500x500.jpg",
+      "https://qph.cf2.quoracdn.net/main-qimg-9c928433f921982fc3ad6fd986db60c8",
     foodName: "Nasi Lemak",
     price: 3,
   });
