@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const { isLoggedIn } = require("../middleware");
+const { isLoggedIn, usernameToLowerCase } = require("../middleware");
 const user = require("../controllers/users");
 
 
@@ -22,12 +22,13 @@ router.get("/userData", async (req, res) => {
 router
     .route("/register")
     .get(user.register)
-    .post(user.createUser);
+    .post(usernameToLowerCase, user.createUser);
 
 router
   .route("/login")
   .get(user.login)
-  .post(
+  .post( 
+    usernameToLowerCase,
     passport.authenticate("local", {
       failureFlash: true,
       failureRedirect: "/login",

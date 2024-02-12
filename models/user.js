@@ -13,4 +13,10 @@ const userSchema = new Schema({
 });
 userSchema.plugin(passportLocalMongoose); // includes username, password in schema
 
+// pre-save hook to lowercase username
+userSchema.pre("save", function (next) {
+  this.username = this.username.toLowerCase();
+  next();
+});
+
 module.exports = Model("User", userSchema);

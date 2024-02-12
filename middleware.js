@@ -29,3 +29,8 @@ module.exports.isAdmin = (req, res, next) => {
   }
   next();
 };
+
+module.exports.usernameToLowerCase = (req, res, next) => {
+  req.body.username = req.body.username.toLowerCase();
+  next();
+};
