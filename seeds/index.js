@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const Parent = require("../models/parent");
 const Food = require("../models/food");
+const Admin = require("../models/admin");
+const CanteenWorker = require("../models/canteenWorker");
 
 dbUrl =
   process.env.DB_URL || "mongodb://localhost:27017/food_reservation_system";
@@ -22,42 +24,28 @@ const seedDB = async () => {
   await Food.deleteMany({});
 
   // create admin user
-  const user = new User({
+  const adminUser = new User({
     username: "admin",
     userType: "admin",
     phoneNumber: 1234567890,
   });
-  await User.register(user, "admin");
+  await User.register(adminUser, "admin");
+  await Admin.create({
+    user: adminUser._id,
+  });
   console.log("Admin user created");
 
-  // create 3 canteen worker user
-  await User.register(
-    new User({
-      username: "canteenWorker1",
-      userType: "canteenWorker",
-      phoneNumber: 1234567890,
-    }),
-    "canteenWorker1"
-  );
-  console.log("Canteen worker 1 created");
-  await User.register(
-    new User({
-      username: "canteenWorker2",
-      userType: "canteenWorker",
-      phoneNumber: 1234567890,
-    }),
-    "canteenWorker2"
-  );
-  console.log("Canteen worker 2 created");
-  await User.register(
-    new User({
-      username: "canteenWorker3",
-      userType: "canteenWorker",
-      phoneNumber: 1234567890,
-    }),
-    "canteenWorker3"
-  );
-  console.log("Canteen worker 3 created");
+  // create canteen worker user
+  const canteenWorker = new User({
+    username: "canteenWorker",
+    userType: "canteenWorker",
+    phoneNumber: 1234567890,
+  });
+  await User.register(canteenWorker, "canteenWorker");
+  await CanteenWorker.create({
+    user: canteenWorker._id,
+  });
+  console.log("Canteen worker created");
 
   // create 2 food, nasi lemak and fried noodle
   const food1 = new Food({
