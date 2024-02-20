@@ -1,3 +1,7 @@
+## Screenshot
+
+![Homepage](./assets/homepage.jpg)
+
 ## Clone & Build Instructions
 
 ```
